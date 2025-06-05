@@ -1,0 +1,17 @@
+// Find all books in a specific genre
+db.books.find({ genre: "Fantasy" });
+
+// Find books published after a certain year
+db.books.find({ published_year: { $gt: 2010 } });
+
+// Find books by a specific author
+db.books.find({ author: "J.K. Rowling" });
+
+// Update the price of a specific book
+db.books.updateOne(
+  { title: "Harry Potter and the Sorcerer's Stone" },
+  { $set: { price: 19.99 } }
+);
+
+// Delete a book by its title
+db.books.deleteOne({ title: "Old Book Title" });
