@@ -1,0 +1,10 @@
+// Create index on title
+db.books.createIndex({ title: 1 });
+
+// Create compound index on author and published_year
+db.books.createIndex({ author: 1, published_year: -1 });
+
+// Explain query performance (before & after indexes)
+db.books.find({ title: "Some Book Title" }).explain("executionStats");
+
+db.books.find({ author: "J.K. Rowling", published_year: 2007 }).explain("executionStats");
